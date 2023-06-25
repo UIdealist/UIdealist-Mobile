@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#32302F"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lblMembersTitle"
+        android:layout_width="match_parent"
+        android:layout_height="152dp"
+        android:autoText="false"
+        android:editable="false"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center|top"
+        android:paddingTop="@dimen/main_title_margin_top"
+        android:text="Members Management"
+        android:textColor="@color/white"
+        android:textSize="48sp" />
+
+    <ScrollView
+        android:id="@+id/scrMembersMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/lytMembersRoles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+</LinearLayout>
