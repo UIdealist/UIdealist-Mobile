@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.VectorConverter
@@ -17,6 +18,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -31,12 +33,44 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
+import androidx.lifecycle.lifecycleScope
+import com.helper.managementhelper.network.ManagementApi
+import com.helper.managementhelper.poko.auth.SignIn
+import com.helper.managementhelper.poko.auth.SignInResponse
 import com.helper.managementhelper.ui.theme.ManagementHelperTheme
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.io.IOException
 
 class MainActivity : ComponentActivity() {
 
+    fun loadRanksData(){
+        GlobalScope.launch {
+
+            try{
+                // Make a call to backend
+                val data : SignIn = SignIn("test", "test")
+
+                println("Sending response")
+                val response = ManagementApi.retrofitService.signIn(data).await()
+
+                if (response.isSuccessful) {
+                    println("Gotten response")
+                } else {
+                    println("Error ${response.code()}")
+                    Toast.makeText(this@MainActivity,"Exception", Toast.LENGTH_LONG).show()
+                }
+
+            } catch (e : IOException){
+                println("Exception " + e.printStackTrace())
+                Toast.makeText(this@MainActivity,"Exception", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        println("Receiving response")
         setContentView(R.layout.members_management)
 
         // Lets edit layout a little bit by adding custom
@@ -57,8 +91,14 @@ class MainActivity : ComponentActivity() {
                 RoleFrame("Standard Admins", Color(0xFF5BFFFF))
                 RoleFrame("Starting Admins", Color(0xFFFFBF00))
                 RoleFrame("Special Guests", Color(0xFF4BBF4B))
+
+                Button(onClick = { loadRanksData() } ) {
+                    Text(text = "Load data")
+                }
             }
         }
+
+
     }
 }
 
@@ -69,7 +109,7 @@ fun RoleFrame(
     Row(
         Modifier
             .fillMaxWidth()
-            .background( color )
+            .background(color)
     ) {
         Text(
             text = name,
