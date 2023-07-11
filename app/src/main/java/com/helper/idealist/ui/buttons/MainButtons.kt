@@ -1,0 +1,45 @@
+package com.helper.idealist.ui.buttons
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.em
+
+@Composable
+fun MainButton(
+    text: String,
+    onClick: () -> Unit,
+    type : Int
+){
+    Button(
+        onClick = onClick,
+        modifier = Modifier
+            .padding(16.dp),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = when (type) {
+                0 -> com.helper.idealist.ui.theme.Primary1
+                1 -> com.helper.idealist.ui.theme.Primary2
+                3 -> com.helper.idealist.ui.theme.Primary3
+                4 -> com.helper.idealist.ui.theme.Primary4
+                else -> com.helper.idealist.ui.theme.Primary1
+            }
+        )
+    ){
+        Text(
+            text = text,
+            color = Color.White,
+            fontSize = 3.em,
+            modifier = Modifier
+                .background(Color.Transparent)
+        )
+    }
+}
