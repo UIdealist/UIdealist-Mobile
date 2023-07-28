@@ -90,6 +90,16 @@ class MainActivity : ComponentActivity() {
                         },
                         type = 2
                     )
+
+                    MainButton(
+                        text = stringResource(R.string.button_label_stay_anonymous),
+                        onClick = {
+                            val intent = Intent(this@MainActivity,
+                                SignUpActivity::class.java)
+                            startActivity(intent)
+                        },
+                        type = 4
+                    )
                 }
             }
         }

@@ -2,8 +2,9 @@
     <string name="app_name">Idealist</string>
     <string name="title_welcome_message">Welcome to Idealist!</string>
     <string name="subtitle_welcome_message">We are glad to you see you here again!</string>
-    <string name="button_label_sign_in">Sign In into your account!</string>
-    <string name="button_label_sign_up">Sign Up and create a new genius account!</string>
+    <string name="button_label_sign_in">Sign In</string>
+    <string name="button_label_sign_up">Sign Up</string>
+    <string name="button_label_stay_anonymous">Just get me in!</string>
     <string name="textinput_label_sign_in_user">Type your username</string>
     <string name="textinput_label_sign_in_password">And here goes your password!</string>
     <string name="textinput_label_sign_in_user_placeholder">Your cool username...</string>

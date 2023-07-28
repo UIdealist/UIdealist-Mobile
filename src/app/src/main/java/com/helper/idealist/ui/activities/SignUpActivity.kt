@@ -13,8 +13,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -23,63 +23,66 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.helper.idealist.R
 import com.helper.idealist.api.network.IdealistAPI
-import com.helper.idealist.api.poko.auth.SignIn
-import com.helper.idealist.api.poko.auth.SignInResponse
 import com.helper.idealist.api.poko.auth.SignUp
 import com.helper.idealist.api.poko.auth.SignUpResponse
+import com.helper.idealist.simpleapi.Item
 import com.helper.idealist.ui.buttons.MainButton
 import com.helper.idealist.ui.inputs.LabeledInput
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SignInActivity : ComponentActivity(){
+class SignUpActivity : ComponentActivity(){
 
     fun submitData(
         username : String,
-        password : String
+        password : String,
+        email : String
     ) {
         // TODO: Validate data prior to submission
         // Create Sign Up Request
-        val SignInReq = SignIn(
+        val SignUpReq = SignUp(
             username = username,
-            password = password
+            password = password,
+            email = email
         )
 
-        val call : Call<SignInResponse> = IdealistAPI.retrofitService.signIn(
-            SignInReq
+        val call : Call<SignUpResponse> = IdealistAPI.retrofitService.signUp(
+            SignUpReq
         );
 
         call.enqueue(
-            object : Callback<SignInResponse> {
+            object : Callback<SignUpResponse> {
                 override fun onFailure(
-                    call: Call<SignInResponse?>,
+                    call: Call<SignUpResponse?>,
                     t: Throwable
                 ){
                     println("**ERROR** " + t.toString())
 
                     // Make user aware of error
                     Toast.makeText(
-                        this@SignInActivity,
+                        this@SignUpActivity,
                         "Error: " + t.toString(),
                         Toast.LENGTH_LONG
                     ).show()
                 }
 
                 override fun onResponse(
-                    call: Call<SignInResponse?>,
-                    response: Response<SignInResponse?>
+                    call: Call<SignUpResponse?>,
+                    response: Response<SignUpResponse?>
                 ){
                     if(response.isSuccessful){
                         val signUpResponse = response.body()!!
 
                         // Make user aware of success
                         Toast.makeText(
-                            this@SignInActivity,
-                            "Success signing In!",
+                            this@SignUpActivity,
+                            "Success signing Up!",
                             Toast.LENGTH_LONG
                         ).show()
 
@@ -89,7 +92,7 @@ class SignInActivity : ComponentActivity(){
 
                         // Make user aware of error
                         Toast.makeText(
-                            this@SignInActivity,
+                            this@SignUpActivity,
                             "Error: " + response.errorBody()?.string(),
                             Toast.LENGTH_LONG
                         ).show()
@@ -104,41 +107,55 @@ class SignInActivity : ComponentActivity(){
         super.onCreate(savedInstanceState)
 
         setContent {
-            val username = remember { mutableStateOf("") }
-            val password = remember { mutableStateOf("") }
+            val username = remember { mutableStateOf("")}
+            val password = remember { mutableStateOf("")}
+            val email = remember { mutableStateOf("")}
 
             Column (
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Color.Black),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = stringResource(R.string.button_label_sign_in_title)
+                    text = stringResource(R.string.button_label_sign_up_title),
+                    color = Color.White,
+                    fontSize = 60.sp
                 )
                 Spacer(modifier = Modifier.size(100.dp))
 
                 LabeledInput(
-                    label = stringResource(R.string.textinput_label_sign_in_user),
-                    placeholder = stringResource(R.string.textinput_label_sign_in_user_placeholder),
+                    label = stringResource(R.string.textinput_label_sign_up_user),
+                    placeholder = stringResource(R.string.textinput_label_sign_up_user_placeholder),
                     stateVar = username,
                     color = Color.White
                 )
 
                 LabeledInput(
-                    label = stringResource(R.string.textinput_label_sign_in_password),
-                    placeholder = stringResource(R.string.textinput_label_sign_in_password_placeholder),
+                    label = stringResource(R.string.textinput_label_sign_up_password),
+                    placeholder = stringResource(R.string.textinput_label_sign_up_password_placeholder),
                     stateVar = password,
                     color = Color.White
                 )
 
-                Spacer(modifier = Modifier.size(20.dp))
+                LabeledInput(
+                    label = stringResource(R.string.textinput_label_sign_up_email),
+                    placeholder = stringResource(R.string.textinput_label_sign_up_email_placeholder),
+                    stateVar = email,
+                    color = Color.White
+                )
+
+                Spacer(modifier = Modifier.size(10.dp))
 
                 MainButton(
-                    text = stringResource(R.string.button_label_sign_in_main),
-                    onClick = { submitData(username.value, password.value) },
-                    type = 4
+                    text = stringResource(R.string.button_label_sign_up_main),
+                    onClick = { submitData(
+                        username = username.value,
+                        password = password.value,
+                        email = email.value
+                    ) },
+                    type = 3
                 )
             }
         }
