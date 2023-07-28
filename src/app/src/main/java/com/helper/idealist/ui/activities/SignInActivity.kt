@@ -26,6 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.helper.idealist.R
+import com.helper.idealist.api.datastore.TokenManager
 import com.helper.idealist.api.network.IdealistAPI
 import com.helper.idealist.api.poko.auth.SignIn
 import com.helper.idealist.api.poko.auth.SignInResponse
@@ -33,11 +34,15 @@ import com.helper.idealist.api.poko.auth.SignUp
 import com.helper.idealist.api.poko.auth.SignUpResponse
 import com.helper.idealist.ui.buttons.MainButton
 import com.helper.idealist.ui.inputs.LabeledInput
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SignInActivity : ComponentActivity(){
+class SignInActivity constructor(
+    private val tokenManager: TokenManager
+): ComponentActivity(){
 
     fun submitData(
         username : String,
@@ -76,6 +81,12 @@ class SignInActivity : ComponentActivity(){
                 ){
                     if(response.isSuccessful){
                         val signUpResponse = response.body()!!
+
+                        val token = signUpResponse.tokens?.accessToken
+
+                        GlobalScope.launch {
+                            tokenManager.saveToken(token!!)
+                        }
 
                         // Make user aware of success
                         Toast.makeText(

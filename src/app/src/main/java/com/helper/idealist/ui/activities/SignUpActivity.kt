@@ -30,7 +30,6 @@ import com.helper.idealist.R
 import com.helper.idealist.api.network.IdealistAPI
 import com.helper.idealist.api.poko.auth.SignUp
 import com.helper.idealist.api.poko.auth.SignUpResponse
-import com.helper.idealist.simpleapi.Item
 import com.helper.idealist.ui.buttons.MainButton
 import com.helper.idealist.ui.inputs.LabeledInput
 import retrofit2.Call

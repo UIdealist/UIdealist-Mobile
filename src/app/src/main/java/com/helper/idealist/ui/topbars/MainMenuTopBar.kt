@@ -1,5 +1,6 @@
 package com.helper.idealist.ui.topbars
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -26,7 +27,7 @@ fun MainMenuTopBar(
         },
         title = {
             Text(
-                text = "Idealist",
+                text = "Menu",
                 fontSize = 20.sp
             )
         },

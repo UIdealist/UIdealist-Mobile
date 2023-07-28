@@ -23,4 +23,14 @@
 
     <string name="button_label_sign_in_title">Sign In</string>
     <string name="button_label_sign_up_title">Sign Up</string>
+
+    <string name="menu_profile_image_description">This is your profile image</string>
+    <string name="menu_item_teams">Teams</string>
+    <string name="menu_item_teams_description">Teams Icon</string>
+    <string name="menu_item_projects">Projects</string>
+    <string name="menu_item_projects_description">Projects Icon</string>
+    <string name="menu_item_brainstorms">Brainstorms</string>
+    <string name="menu_item_brainstorms_description">Brainstorms Icon</string>
+    <string name="menu_item_ideas">Raw Ideas</string>
+    <string name="menu_item_ideas_description">Raw Ideas Icon</string>
 </resources>

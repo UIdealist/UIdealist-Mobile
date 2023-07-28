@@ -30,6 +30,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import com.helper.idealist.api.poko.auth.SignUp
+import com.helper.idealist.ui.activities.MainMenuActivity
 import com.helper.idealist.ui.activities.SignInActivity
 import com.helper.idealist.ui.activities.SignUpActivity
 import com.helper.idealist.ui.buttons.MainButton
@@ -95,7 +96,7 @@ class MainActivity : ComponentActivity() {
                         text = stringResource(R.string.button_label_stay_anonymous),
                         onClick = {
                             val intent = Intent(this@MainActivity,
-                                SignUpActivity::class.java)
+                                MainMenuActivity::class.java)
                             startActivity(intent)
                         },
                         type = 4
