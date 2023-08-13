@@ -32,6 +32,7 @@ import com.helper.idealist.api.poko.auth.SignUp
 import com.helper.idealist.api.poko.auth.SignUpResponse
 import com.helper.idealist.ui.buttons.MainButton
 import com.helper.idealist.ui.inputs.LabeledInput
+import com.helper.idealist.ui.texts.Title
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -117,11 +118,7 @@ class SignUpActivity : ComponentActivity(){
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(
-                    text = stringResource(R.string.button_label_sign_up_title),
-                    color = Color.White,
-                    fontSize = 60.sp
-                )
+                Title(text = stringResource(R.string.button_label_sign_up_title))
                 Spacer(modifier = Modifier.size(100.dp))
 
                 LabeledInput(

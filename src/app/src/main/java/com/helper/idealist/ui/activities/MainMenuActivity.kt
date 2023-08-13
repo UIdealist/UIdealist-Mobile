@@ -62,6 +62,7 @@ class MainMenuActivity : ComponentActivity() {
                         modifier = Modifier
                             .padding(it)
                             .background(Color.Black),
+                        scrimColor = Color.Black,
                         drawerContent = {
                             MainMenuDrawer(
                                 onItemChange = { selection : String ->

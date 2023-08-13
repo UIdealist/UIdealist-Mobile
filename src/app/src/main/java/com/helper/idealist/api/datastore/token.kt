@@ -8,12 +8,13 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.Flow
+import java.io.Serializable
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "auth")
 
 // Thanks to:
 // https://proandroiddev.com/jwt-authentication-and-refresh-token-in-android-with-retrofit-interceptor-authenticator-da021f7f7534
-class TokenManager(private val context : Context) {
+class TokenManager(private val context : Context) : Serializable {
     companion object {
         private val TOKEN_KEY = stringPreferencesKey("token")
     }

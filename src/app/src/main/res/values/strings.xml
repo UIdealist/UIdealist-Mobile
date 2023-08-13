@@ -33,4 +33,8 @@
     <string name="menu_item_brainstorms_description">Brainstorms Icon</string>
     <string name="menu_item_ideas">Raw Ideas</string>
     <string name="menu_item_ideas_description">Raw Ideas Icon</string>
+    <string name="menu_item_exit">Exit</string>
+
+    <!-- Raw Ideas -->
+    <string name="title_raw_ideas">Raw Ideas</string>
 </resources>

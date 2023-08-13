@@ -29,6 +29,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
+import com.helper.idealist.api.datastore.TokenManager
 import com.helper.idealist.api.poko.auth.SignUp
 import com.helper.idealist.ui.activities.MainMenuActivity
 import com.helper.idealist.ui.activities.SignInActivity
@@ -38,6 +39,10 @@ import com.helper.idealist.ui.buttons.MainButton
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Create token manager
+        val tokenManager = TokenManager(this)
+
         setContent{
             Column(
                 modifier = Modifier
@@ -78,6 +83,7 @@ class MainActivity : ComponentActivity() {
                         text = stringResource(R.string.button_label_sign_in),
                         onClick = {
                             val intent = Intent(this@MainActivity, SignInActivity::class.java)
+                            // intent.putExtra("tokenManager", tokenManager)
                             startActivity(intent)
                         },
                         type = 1

@@ -34,15 +34,14 @@ import com.helper.idealist.api.poko.auth.SignUp
 import com.helper.idealist.api.poko.auth.SignUpResponse
 import com.helper.idealist.ui.buttons.MainButton
 import com.helper.idealist.ui.inputs.LabeledInput
+import com.helper.idealist.ui.texts.Title
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SignInActivity constructor(
-    private val tokenManager: TokenManager
-): ComponentActivity(){
+class SignInActivity : ComponentActivity(){
 
     fun submitData(
         username : String,
@@ -83,6 +82,9 @@ class SignInActivity constructor(
                         val signUpResponse = response.body()!!
 
                         val token = signUpResponse.tokens?.accessToken
+
+                        // Get intent sent from main activity
+                        val tokenManager = intent.getSerializableExtra("tokenManager") as TokenManager
 
                         GlobalScope.launch {
                             tokenManager.saveToken(token!!)
@@ -126,11 +128,7 @@ class SignInActivity constructor(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(
-                    text = stringResource(R.string.button_label_sign_in_title),
-                    color = Color.White,
-                    fontSize = 60.sp
-                )
+                Title(text = stringResource(R.string.button_label_sign_in_title))
                 Spacer(modifier = Modifier.size(100.dp))
 
                 LabeledInput(
