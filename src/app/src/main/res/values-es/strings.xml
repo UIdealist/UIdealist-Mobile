@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">UIdealist</string>
-    <string name="title_welcome_message">Welcome to UIdealist!</string>
+    <string name="title_welcome_message">Bienvenido a UIdealist!</string>
+    //TODO: Translate this
     <string name="subtitle_welcome_message">We are glad to you see you here again! :D</string>
     <string name="button_label_sign_in">Sign In</string>
     <string name="button_label_sign_up">Sign Up</string>
