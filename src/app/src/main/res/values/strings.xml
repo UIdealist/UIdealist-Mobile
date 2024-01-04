@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">UIdealist</string>
     <string name="title_welcome_message">Welcome to UIdealist!</string>
-    <string name="subtitle_welcome_message">We are glad to you see you here again! :D</string>
+    <string name="subtitle_welcome_message">Glad to see you here again</string>
+    <string name="mainpage_message_1">Share your ideas</string>
+    <string name="mainpage_message_2">Contact with investors</string>
+    <string name="mainpage_message_3">Browse lots of projects around the world</string>
     <string name="button_label_sign_in">Sign In</string>
     <string name="button_label_sign_up">Sign Up</string>
     <string name="button_label_stay_anonymous">Just get me in!</string>

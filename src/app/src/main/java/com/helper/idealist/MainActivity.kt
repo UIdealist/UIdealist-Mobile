@@ -10,14 +10,18 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -34,78 +38,146 @@ import com.helper.idealist.api.poko.auth.SignUp
 import com.helper.idealist.ui.activities.MainMenuActivity
 import com.helper.idealist.ui.activities.SignInActivity
 import com.helper.idealist.ui.activities.SignUpActivity
+import com.helper.idealist.ui.activities.ThemedActivity
 import com.helper.idealist.ui.buttons.MainButton
+import com.helper.idealist.ui.buttons.MainButtonType
+import com.helper.idealist.ui.texts.TextCard
+import com.helper.idealist.ui.theme.CustomTheme
 
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+class MainActivity : ThemedActivity(
+    verticalAlign = Arrangement.Top,
+) {
 
-        // Create token manager
-        val tokenManager = TokenManager(this)
-
-        setContent{
+    @Composable
+    override fun content() {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+        ) {
             Column(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color.Black),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ){
-                // Welcome messages
+                    .background(CustomTheme.colors.primary2)
+                    .fillMaxWidth()
+                    .padding(
+                        top = CustomTheme.spaces.extraLarge,
+                        bottom = CustomTheme.spaces.extraLarge
+                    )
+            ) {
                 Text(
                     text = stringResource(R.string.title_welcome_message),
-                    modifier = Modifier
-                        .background(Color.Transparent),
-                    color = Color.White,
-                    fontSize = 6.em,
-                    textAlign = TextAlign.Center
+                    style = CustomTheme.typography.h1Cursive,
+                    color = CustomTheme.colors.textColor1,
+                    textAlign = TextAlign.Center,
                 )
+            }
 
-                Spacer(modifier = Modifier.size(25.dp))
-
-                Text(
-                    text = stringResource(R.string.subtitle_welcome_message),
-                    modifier = Modifier
-                        .background(Color.Transparent),
-                    color = Color.White,
-                    fontSize = 4.em,
-                    textAlign = TextAlign.Center
-                )
-
-                Spacer(modifier = Modifier.size(100.dp))
-
-                // Buttons to navigate to Sign In and Sign Up activities
-                Column (
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ){
-                    MainButton(
-                        text = stringResource(R.string.button_label_sign_in),
-                        onClick = {
-                            val intent = Intent(this@MainActivity, SignInActivity::class.java)
-                            // intent.putExtra("tokenManager", tokenManager)
-                            startActivity(intent)
-                        },
-                        type = 1
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(
+                        top = CustomTheme.spaces.extraLarge,
+                        bottom = CustomTheme.spaces.extraLarge,
+                        start = CustomTheme.spaces.extraSmall,
+                        end = CustomTheme.spaces.extraSmall
                     )
+                    .verticalScroll(rememberScrollState()),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(
+                    CustomTheme.spaces.extraLarge
+                )
+            ) {
+                Row{
+                    Column{
+                        TextCard(
+                            text = stringResource(R.string.mainpage_message_1),
 
+                        )
+                    }
+                    Column (
+                        modifier = Modifier
+                            .fillMaxWidth(0.3f)
+                    ){
+
+                    }
+                }
+                Row{
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth(0.3f)
+                    ) {
+
+                    }
+                    Column{
+                        TextCard(
+                            text = stringResource(R.string.mainpage_message_2)
+                        )
+                    }
+                }
+                Row{
+                    Column{
+                        TextCard(
+                            text = stringResource(R.string.mainpage_message_3)
+                        )
+                    }
+                    Column(modifier = Modifier
+                        .fillMaxWidth(0.3f)
+                    ) {
+
+                    }
+                }
+            }
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(CustomTheme.colors.primary2)
+                    .padding(
+                        top = CustomTheme.spaces.extraLarge,
+                        bottom = CustomTheme.spaces.extraLarge
+                    )
+                    .wrapContentHeight(
+                        align = Alignment.Bottom
+                    )
+                ,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Row {
                     MainButton(
                         text = stringResource(R.string.button_label_sign_up),
                         onClick = {
-                            val intent = Intent(this@MainActivity, SignUpActivity::class.java)
-                            startActivity(intent)
+                            startActivity(
+                                Intent(
+                                    this@MainActivity, SignUpActivity::class.java
+                                )
+                            )
                         },
-                        type = 2
+                        type = MainButtonType.Primary
                     )
 
                     MainButton(
+                        text = stringResource(R.string.button_label_sign_in),
+                        onClick = {
+                            startActivity(
+                                Intent(
+                                    this@MainActivity, SignInActivity::class.java
+                                )
+                            )
+                        },
+                        type = MainButtonType.Primary
+                    )
+                }
+
+                Row {
+                    MainButton(
                         text = stringResource(R.string.button_label_stay_anonymous),
                         onClick = {
-                            val intent = Intent(this@MainActivity,
-                                MainMenuActivity::class.java)
-                            startActivity(intent)
+                            startActivity(
+                                Intent(
+                                    this@MainActivity, SignInActivity::class.java
+                                )
+                            )
                         },
-                        type = 4
+                        type = MainButtonType.Primary
                     )
                 }
             }

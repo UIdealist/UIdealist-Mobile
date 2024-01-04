@@ -1,41 +1,43 @@
 <resources>
     <string name="app_name">UIdealist</string>
     <string name="title_welcome_message">Bienvenido a UIdealist!</string>
-    //TODO: Translate this
-    <string name="subtitle_welcome_message">We are glad to you see you here again! :D</string>
-    <string name="button_label_sign_in">Sign In</string>
-    <string name="button_label_sign_up">Sign Up</string>
-    <string name="button_label_stay_anonymous">Just get me in!</string>
-    <string name="textinput_label_sign_in_user">Type your username</string>
-    <string name="textinput_label_sign_in_password">And here goes your password!</string>
-    <string name="textinput_label_sign_in_user_placeholder">Your cool username...</string>
-    <string name="textinput_label_sign_in_password_placeholder">Your cool password...</string>
+    <string name="subtitle_welcome_message">Estamos feliz de verte de nuevo!</string>
+    <string name="mainpage_message_1">Comparte tus ideas</string>
+    <string name="mainpage_message_2">Contacta con inversores</string>
+    <string name="mainpage_message_3">Navega por proyectos en todo el mundo</string>
+    <string name="button_label_sign_in">Iniciar Sesión</string>
+    <string name="button_label_sign_up">Registrarme</string>
+    <string name="button_label_stay_anonymous">Sólo quiero ver!</string>
+    <string name="textinput_label_sign_in_user">Digita tu nombre de usuario</string>
+    <string name="textinput_label_sign_in_password">Y aquí va tu contraseña</string>
+    <string name="textinput_label_sign_in_user_placeholder">Tu interesante nombre</string>
+    <string name="textinput_label_sign_in_password_placeholder">Tu aún mas interesante contraseña</string>
 
-    <string name="textinput_label_sign_up_user">Type your username</string>
-    <string name="textinput_label_sign_up_password">Here goes your password!</string>
-    <string name="textinput_label_sign_up_email">And here goes your email address!</string>
+    <string name="textinput_label_sign_up_user">Digita tu nombre de usuario</string>
+    <string name="textinput_label_sign_up_password">Aquí va tu contraseña</string>
+    <string name="textinput_label_sign_up_email">Y... aquí tu dirección de email</string>
 
-    <string name="textinput_label_sign_up_user_placeholder">Your cool username...</string>
-    <string name="textinput_label_sign_up_password_placeholder">Your cool password...</string>
-    <string name="textinput_label_sign_up_email_placeholder">Your popular email…</string>
+    <string name="textinput_label_sign_up_user_placeholder">Tu interesante nombre</string>
+    <string name="textinput_label_sign_up_password_placeholder">Tu aún mas interesante contraseña</string>
+    <string name="textinput_label_sign_up_email_placeholder">Tu reconocido email</string>
 
-    <string name="button_label_sign_in_main">Do it!</string>
-    <string name="button_label_sign_up_main">Do it!</string>
+    <string name="button_label_sign_in_main">Hazlo!</string>
+    <string name="button_label_sign_up_main">Hazlo!</string>
 
-    <string name="button_label_sign_in_title">Sign In</string>
-    <string name="button_label_sign_up_title">Sign Up</string>
+    <string name="button_label_sign_in_title">Iniciar sesión</string>
+    <string name="button_label_sign_up_title">Registrarme</string>
 
-    <string name="menu_profile_image_description">This is your profile image</string>
-    <string name="menu_item_teams">Teams</string>
-    <string name="menu_item_teams_description">Teams Icon</string>
-    <string name="menu_item_projects">Projects</string>
-    <string name="menu_item_projects_description">Projects Icon</string>
-    <string name="menu_item_brainstorms">Brainstorms</string>
-    <string name="menu_item_brainstorms_description">Brainstorms Icon</string>
-    <string name="menu_item_ideas">Raw Ideas</string>
-    <string name="menu_item_ideas_description">Raw Ideas Icon</string>
-    <string name="menu_item_exit">Exit</string>
+    <string name="menu_profile_image_description">Ésta es tu imagen de perfil</string>
+    <string name="menu_item_teams">Equipos</string>
+    <string name="menu_item_teams_description">Ícono de equipos</string>
+    <string name="menu_item_projects">Proyectos</string>
+    <string name="menu_item_projects_description">Ícono de proyectos</string>
+    <string name="menu_item_brainstorms">Lluvia de ideas</string>
+    <string name="menu_item_brainstorms_description">Ícono de lluvia de ideas</string>
+    <string name="menu_item_ideas">Ideas sueltas</string>
+    <string name="menu_item_ideas_description">Ícono de ideas sueltas</string>
+    <string name="menu_item_exit">Salir</string>
 
     <!-- Raw Ideas -->
-    <string name="title_raw_ideas">Raw Ideas</string>
+    <string name="title_raw_ideas">Ideas sueltas</string>
 </resources>

@@ -7,24 +7,21 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.sp
 import com.helper.idealist.ui.theme.CustomTheme
 
 @Composable
-fun Title(text : String) {
+fun TextCard(text : String){
     Text(
+        modifier = Modifier
+            .background(CustomTheme.colors.primary2)
+            .border(
+                width = CustomTheme.spaces.small,
+                color = CustomTheme.colors.textColor1,
+                shape = RoundedCornerShape(CustomTheme.spaces.medium)
+            )
+            .padding(CustomTheme.spaces.large),
         text = text,
         color = CustomTheme.colors.textColor1,
-        fontSize = 60.sp
-    )
-}
-
-@Composable
-fun SubTitle(text : String){
-    Text(
-        text = text,
-        color = CustomTheme.colors.textColor1,
-        fontSize = 30.sp
+        style = CustomTheme.typography.body1
     )
 }

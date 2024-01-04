@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.helper.idealist.R
 import com.helper.idealist.ui.theme.*
+import com.helper.idealist.ui.theme.CustomTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -134,7 +135,7 @@ fun MainMenuDrawer(
                 iconDescription = stringResource(
                     id = R.string.menu_item_teams_description
                 ),
-                contentColor = Primary1
+                contentColor = CustomTheme.colors.primary1
             )
 
             MenuItem(
@@ -148,7 +149,7 @@ fun MainMenuDrawer(
                 iconDescription = stringResource(
                     id = R.string.menu_item_projects_description
                 ),
-                contentColor = Primary2
+                contentColor = CustomTheme.colors.primary2
             )
 
             MenuItem(
@@ -162,7 +163,7 @@ fun MainMenuDrawer(
                 iconDescription = stringResource(
                     id = R.string.menu_item_brainstorms_description
                 ),
-                contentColor = Primary3
+                contentColor = CustomTheme.colors.primary3
             )
 
             MenuItem(
@@ -176,7 +177,7 @@ fun MainMenuDrawer(
                 iconDescription = stringResource(
                     id = R.string.menu_item_ideas_description
                 ),
-                contentColor = Primary4
+                contentColor = CustomTheme.colors.primary4
             )
 
             Spacer(modifier = Modifier.padding(16.dp))

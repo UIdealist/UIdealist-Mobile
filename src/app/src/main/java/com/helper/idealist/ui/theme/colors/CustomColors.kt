@@ -7,20 +7,12 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 class CustomColors(
-    primary1: Color,
-    primary2: Color,
-    primary3: Color,
-    primary4: Color,
-    secondary1: Color,
-    secondary2: Color,
-    secondary3: Color,
-    secondary4: Color,
-    tertiary1: Color,
-    tertiary2: Color,
-    tertiary3: Color,
-    tertiary4: Color,
-    error1: Color,
-    error2: Color,
+    primary1: Color, primary2: Color, primary3: Color, primary4: Color,
+    secondary1: Color, secondary2: Color, secondary3: Color, secondary4: Color,
+    tertiary1: Color, tertiary2: Color, tertiary3: Color, tertiary4: Color,
+    error1: Color, error2: Color,
+    background1 : Color, background2 : Color,
+    textColor1 : Color, textColor2 : Color, textColor3 : Color,
     colorMode: ColorMode,
 ) {
     var primary1 by mutableStateOf(primary1)
@@ -65,58 +57,57 @@ class CustomColors(
     var error2 by mutableStateOf(error2)
         private set
 
+    var background1 by mutableStateOf(background1)
+        private set
+
+    var background2 by mutableStateOf(background2)
+        private set
+
+    var textColor1 by mutableStateOf(textColor1)
+        private set
+
+    var textColor2 by mutableStateOf(textColor2)
+        private set
+
+    var textColor3 by mutableStateOf(textColor3)
+        private set
+
     var colorMode by mutableStateOf(colorMode)
         private set
 
     fun copy(
-        primary1 : Color = this.primary1,
-        primary2 : Color = this.primary2,
-        primary3 : Color = this.primary3,
-        primary4 : Color = this.primary4,
-        secondary1 : Color = this.secondary1,
-        secondary2 : Color = this.secondary2,
-        secondary3 : Color = this.secondary3,
-        secondary4 : Color = this.secondary4,
-        tertiary1 : Color = this.tertiary1,
-        tertiary2 : Color = this.tertiary2,
-        tertiary3 : Color = this.tertiary3,
-        tertiary4 : Color = this.tertiary4,
-        error1 : Color = this.error1,
-        error2 : Color = this.error2,
+        primary1 : Color = this.primary1, primary2 : Color = this.primary2,
+        primary3 : Color = this.primary3, primary4 : Color = this.primary4,
+        secondary1 : Color = this.secondary1, secondary2 : Color = this.secondary2,
+        secondary3 : Color = this.secondary3, secondary4 : Color = this.secondary4,
+        tertiary1 : Color = this.tertiary1, tertiary2 : Color = this.tertiary2,
+        tertiary3 : Color = this.tertiary3, tertiary4 : Color = this.tertiary4,
+        error1 : Color = this.error1, error2 : Color = this.error2,
+        background1 : Color = this.background1, background2 : Color = this.background2,
+        textColor1 : Color = this.textColor1, textColor2 : Color = this.textColor2,
+        textColor3 : Color = this.textColor3,
         colorMode : ColorMode = this.colorMode,
     ) = CustomColors(
-        primary1 = primary1,
-        primary2 = primary2,
-        primary3 = primary3,
-        primary4 = primary4,
-        secondary1 = secondary1,
-        secondary2 = secondary2,
-        secondary3 = secondary3,
-        secondary4 = secondary4,
-        tertiary1 = tertiary1,
-        tertiary2 = tertiary2,
-        tertiary3 = tertiary3,
-        tertiary4 = tertiary4,
-        error1 = error1,
-        error2 = error2,
+        primary1 = primary1, primary2 = primary2, primary3 = primary3, primary4 = primary4,
+        secondary1 = secondary1, secondary2 = secondary2, secondary3 = secondary3, secondary4 = secondary4,
+        tertiary1 = tertiary1, tertiary2 = tertiary2, tertiary3 = tertiary3, tertiary4 = tertiary4,
+        error1 = error1, error2 = error2,
+        background1 = background1, background2 = background2,
+        textColor1 = textColor1, textColor2 = textColor2, textColor3 = textColor3,
         colorMode = colorMode
     )
 
     fun updateColorsFrom(other: CustomColors) {
-        primary1 = other.primary1
-        primary2 = other.primary2
-        primary3 = other.primary3
-        primary4 = other.primary4
-        secondary1 = other.secondary1
-        secondary2 = other.secondary2
-        secondary3 = other.secondary3
-        secondary4 = other.secondary4
-        tertiary1 = other.tertiary1
-        tertiary2 = other.tertiary2
-        tertiary3 = other.tertiary3
-        tertiary4 = other.tertiary4
-        error1 = other.error1
-        error2 = other.error2
+        primary1 = other.primary1; primary2 = other.primary2
+        primary3 = other.primary3; primary4 = other.primary4
+        secondary1 = other.secondary1; secondary2 = other.secondary2
+        secondary3 = other.secondary3; secondary4 = other.secondary4
+        tertiary1 = other.tertiary1; tertiary2 = other.tertiary2
+        tertiary3 = other.tertiary3; tertiary4 = other.tertiary4
+        error1 = other.error1; error2 = other.error2
+        background1 = other.background1; background2 = other.background2
+        textColor1 = other.textColor1; textColor2 = other.textColor2;
+        textColor3 = other.textColor3
         colorMode = other.colorMode
     }
 }

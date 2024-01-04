@@ -3,6 +3,9 @@ package com.helper.idealist.ui.theme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import com.helper.idealist.ui.theme.colors.CustomColors
+import com.helper.idealist.ui.theme.colors.LocalCustomColors
+import com.helper.idealist.ui.theme.shapes.CustomShapes
+import com.helper.idealist.ui.theme.shapes.LocalCustomShapes
 import com.helper.idealist.ui.theme.spaces.CustomSpaces
 import com.helper.idealist.ui.theme.spaces.LocalCustomSpaces
 import com.helper.idealist.ui.theme.typography.CustomTypography
@@ -23,4 +26,10 @@ object CustomTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalCustomSpaces.current
+
+    val shapes: CustomShapes
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalCustomShapes.current
+
 }

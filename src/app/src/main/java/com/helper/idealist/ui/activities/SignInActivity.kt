@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -33,6 +34,7 @@ import com.helper.idealist.api.poko.auth.SignInResponse
 import com.helper.idealist.api.poko.auth.SignUp
 import com.helper.idealist.api.poko.auth.SignUpResponse
 import com.helper.idealist.ui.buttons.MainButton
+import com.helper.idealist.ui.buttons.MainButtonType
 import com.helper.idealist.ui.inputs.LabeledInput
 import com.helper.idealist.ui.texts.Title
 import kotlinx.coroutines.GlobalScope
@@ -41,7 +43,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SignInActivity : ComponentActivity(){
+class SignInActivity : ThemedActivity(){
 
     fun submitData(
         username : String,
@@ -114,45 +116,34 @@ class SignInActivity : ComponentActivity(){
         )
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    @Composable
+    override fun content() {
+        val username = remember { mutableStateOf("") }
+        val password = remember { mutableStateOf("") }
 
-        setContent {
-            val username = remember { mutableStateOf("") }
-            val password = remember { mutableStateOf("") }
+        Title(text = stringResource(R.string.button_label_sign_in_title))
+        Spacer(modifier = Modifier.size(100.dp))
 
-            Column (
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color.Black),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Title(text = stringResource(R.string.button_label_sign_in_title))
-                Spacer(modifier = Modifier.size(100.dp))
+        LabeledInput(
+            label = stringResource(R.string.textinput_label_sign_in_user),
+            placeholder = stringResource(R.string.textinput_label_sign_in_user_placeholder),
+            stateVar = username,
+            color = Color.White
+        )
 
-                LabeledInput(
-                    label = stringResource(R.string.textinput_label_sign_in_user),
-                    placeholder = stringResource(R.string.textinput_label_sign_in_user_placeholder),
-                    stateVar = username,
-                    color = Color.White
-                )
+        LabeledInput(
+            label = stringResource(R.string.textinput_label_sign_in_password),
+            placeholder = stringResource(R.string.textinput_label_sign_in_password_placeholder),
+            stateVar = password,
+            color = Color.White
+        )
 
-                LabeledInput(
-                    label = stringResource(R.string.textinput_label_sign_in_password),
-                    placeholder = stringResource(R.string.textinput_label_sign_in_password_placeholder),
-                    stateVar = password,
-                    color = Color.White
-                )
+        Spacer(modifier = Modifier.size(10.dp))
 
-                Spacer(modifier = Modifier.size(10.dp))
-
-                MainButton(
-                    text = stringResource(R.string.button_label_sign_in_main),
-                    onClick = { submitData(username.value, password.value) },
-                    type = 4
-                )
-            }
-        }
+        MainButton(
+            text = stringResource(R.string.button_label_sign_in_main),
+            onClick = { submitData(username.value, password.value) },
+            type = MainButtonType.Primary
+        )
     }
 }

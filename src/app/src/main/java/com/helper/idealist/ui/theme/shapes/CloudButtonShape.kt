@@ -1,4 +1,4 @@
-package com.helper.idealist.ui.shapes
+package com.helper.idealist.ui.theme.shapes
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 
-class MainButtonShape(val startPosition : Int) : Shape {
+class CloudButtonShape() : Shape {
     override fun createOutline(
         size: Size,
         layoutDirection: LayoutDirection,
@@ -17,12 +17,23 @@ class MainButtonShape(val startPosition : Int) : Shape {
     ): Outline {
         return Outline.Generic(
             Path().apply {
+
                 val width = size.width
                 val height = size.height
+
+                val widthCellsFactor = width / 20
+                val heightCellsFactor = height / 10
+
+                val rectSize = Size(18*widthCellsFactor, 2*heightCellsFactor)
+
+                // Draw figure clockwise
+
+                reset()
 
                 // Lets draw an imaginative cloud
 
                 // Draw main cloud (left-right corners)
+
 
                 // Left side
                 arcTo(
