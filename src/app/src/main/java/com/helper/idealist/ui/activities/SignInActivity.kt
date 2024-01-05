@@ -1,42 +1,28 @@
 package com.helper.idealist.ui.activities
 
-import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.helper.idealist.R
 import com.helper.idealist.api.datastore.TokenManager
 import com.helper.idealist.api.network.IdealistAPI
 import com.helper.idealist.api.poko.auth.SignIn
 import com.helper.idealist.api.poko.auth.SignInResponse
-import com.helper.idealist.api.poko.auth.SignUp
-import com.helper.idealist.api.poko.auth.SignUpResponse
 import com.helper.idealist.ui.buttons.MainButton
 import com.helper.idealist.ui.buttons.MainButtonType
 import com.helper.idealist.ui.inputs.LabeledInput
 import com.helper.idealist.ui.texts.Title
+import com.helper.idealist.ui.theme.CustomTheme
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -122,23 +108,29 @@ class SignInActivity : ThemedActivity(){
         val password = remember { mutableStateOf("") }
 
         Title(text = stringResource(R.string.button_label_sign_in_title))
-        Spacer(modifier = Modifier.size(100.dp))
+        Spacer(modifier = Modifier.size(
+            CustomTheme.spaces.extraLarge
+        ))
 
         LabeledInput(
-            label = stringResource(R.string.textinput_label_sign_in_user),
-            placeholder = stringResource(R.string.textinput_label_sign_in_user_placeholder),
+            label = stringResource(R.string.text_input_label_sign_in_user),
+            placeholder = stringResource(R.string.text_input_label_sign_in_user_placeholder),
             stateVar = username,
-            color = Color.White
+            icon = Icons.Default.Person,
+            iconDescription = stringResource(R.string.person_icon_description)
         )
 
         LabeledInput(
-            label = stringResource(R.string.textinput_label_sign_in_password),
-            placeholder = stringResource(R.string.textinput_label_sign_in_password_placeholder),
+            label = stringResource(R.string.text_input_label_sign_in_password),
+            placeholder = stringResource(R.string.text_input_label_sign_in_password_placeholder),
             stateVar = password,
-            color = Color.White
+            icon = Icons.Default.Lock,
+            iconDescription = stringResource(R.string.lock_icon_description)
         )
 
-        Spacer(modifier = Modifier.size(10.dp))
+        Spacer(modifier = Modifier.size(
+            CustomTheme.spaces.medium
+        ))
 
         MainButton(
             text = stringResource(R.string.button_label_sign_in_main),

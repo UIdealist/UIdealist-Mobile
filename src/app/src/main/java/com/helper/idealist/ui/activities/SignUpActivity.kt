@@ -1,32 +1,19 @@
 package com.helper.idealist.ui.activities
 
-import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.TextField
-import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.helper.idealist.R
 import com.helper.idealist.api.network.IdealistAPI
 import com.helper.idealist.api.poko.auth.SignUp
@@ -115,24 +102,27 @@ class SignUpActivity : ThemedActivity(){
         Spacer(modifier = Modifier.size(100.dp))
 
         LabeledInput(
-            label = stringResource(R.string.textinput_label_sign_up_user),
-            placeholder = stringResource(R.string.textinput_label_sign_up_user_placeholder),
+            label = stringResource(R.string.text_input_label_sign_up_user),
+            placeholder = stringResource(R.string.text_input_label_sign_up_user_placeholder),
             stateVar = username,
-            color = Color.White
+            icon = Icons.Default.Person,
+            iconDescription = stringResource(R.string.person_icon_description)
         )
 
         LabeledInput(
-            label = stringResource(R.string.textinput_label_sign_up_password),
-            placeholder = stringResource(R.string.textinput_label_sign_up_password_placeholder),
+            label = stringResource(R.string.text_input_label_sign_up_password),
+            placeholder = stringResource(R.string.text_input_label_sign_up_password_placeholder),
             stateVar = password,
-            color = Color.White
+            icon = Icons.Default.Lock,
+            iconDescription = stringResource(R.string.lock_icon_description)
         )
 
         LabeledInput(
-            label = stringResource(R.string.textinput_label_sign_up_email),
-            placeholder = stringResource(R.string.textinput_label_sign_up_email_placeholder),
+            label = stringResource(R.string.text_input_label_sign_up_email),
+            placeholder = stringResource(R.string.text_input_label_sign_up_email_placeholder),
             stateVar = email,
-            color = Color.White
+            icon = Icons.Default.Email,
+            iconDescription = stringResource(R.string.email_icon_description)
         )
 
         Spacer(modifier = Modifier.size(10.dp))

@@ -2,24 +2,24 @@
     <string name="app_name">UIdealist</string>
     <string name="title_welcome_message">Welcome to UIdealist!</string>
     <string name="subtitle_welcome_message">Glad to see you here again</string>
-    <string name="mainpage_message_1">Share your ideas</string>
-    <string name="mainpage_message_2">Contact with investors</string>
-    <string name="mainpage_message_3">Browse lots of projects around the world</string>
+    <string name="main_page_message_1">Share your ideas</string>
+    <string name="main_page_message_2">Contact with investors</string>
+    <string name="main_page_message_3">Browse lots of projects around the world</string>
     <string name="button_label_sign_in">Sign In</string>
     <string name="button_label_sign_up">Sign Up</string>
     <string name="button_label_stay_anonymous">Just get me in!</string>
-    <string name="textinput_label_sign_in_user">Type your username</string>
-    <string name="textinput_label_sign_in_password">And here goes your password!</string>
-    <string name="textinput_label_sign_in_user_placeholder">Your cool username...</string>
-    <string name="textinput_label_sign_in_password_placeholder">Your cool password...</string>
+    <string name="text_input_label_sign_in_user">Type your username</string>
+    <string name="text_input_label_sign_in_password">And here goes your password!</string>
+    <string name="text_input_label_sign_in_user_placeholder">Your cool username...</string>
+    <string name="text_input_label_sign_in_password_placeholder">Your cool password...</string>
 
-    <string name="textinput_label_sign_up_user">Type your username</string>
-    <string name="textinput_label_sign_up_password">Here goes your password!</string>
-    <string name="textinput_label_sign_up_email">And here goes your email address!</string>
+    <string name="text_input_label_sign_up_user">Type your username</string>
+    <string name="text_input_label_sign_up_password">Here goes your password!</string>
+    <string name="text_input_label_sign_up_email">And here goes your email address!</string>
 
-    <string name="textinput_label_sign_up_user_placeholder">Your cool username...</string>
-    <string name="textinput_label_sign_up_password_placeholder">Your cool password...</string>
-    <string name="textinput_label_sign_up_email_placeholder">Your popular email…</string>
+    <string name="text_input_label_sign_up_user_placeholder">Your cool username...</string>
+    <string name="text_input_label_sign_up_password_placeholder">Your cool password...</string>
+    <string name="text_input_label_sign_up_email_placeholder">Your popular email…</string>
 
     <string name="button_label_sign_in_main">Do it!</string>
     <string name="button_label_sign_up_main">Do it!</string>
@@ -40,4 +40,25 @@
 
     <!-- Raw Ideas -->
     <string name="title_raw_ideas">Raw Ideas</string>
+    <string name="home_trending_title">What is trending?</string>
+    <string name="home_suggested_ideas_title">Ideas that could awake your interest you</string>
+    <string name="person_icon_description">Person</string>
+    <string name="menu_profile_title">Your Profile</string>
+    <string name="star_icon_description">Star</string>
+    <string name="menu_ideas_title">Your Ideas</string>
+    <string name="check_icon_description">Check</string>
+    <string name="menu_teams_title">Your teams</string>
+    <string name="menu_projects_title">Your projects</string>
+    <string name="menu_investments_title">Your investments</string>
+    <string name="menu_invest_title">Invest now</string>
+    <string name="menu_calendar_title">Calendar</string>
+    <string name="menu_meeting_title">Schedule a meeting</string>
+    <string name="menu_events_title">Events</string>
+    <string name="menu_chats_title">Chats</string>
+    <string name="menu_logout_title">Logout</string>
+    <string name="menu_icon_description">Menu</string>
+    <string name="search_icon_description">Search icon</string>
+    <string name="menu_search_title">Search</string>
+    <string name="lock_icon_description">Lock</string>
+    <string name="email_icon_description">Email</string>
 </resources>
