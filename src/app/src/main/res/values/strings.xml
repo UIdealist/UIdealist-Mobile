@@ -61,4 +61,18 @@
     <string name="menu_search_title">Search</string>
     <string name="lock_icon_description">Lock</string>
     <string name="email_icon_description">Email</string>
+    <string name="home_icon_description">Home Icon</string>
+    <string name="menu_home_title">Home</string>
+    <string name="button_label_add_idea">+ Idea</string>
+    <string name="create_idea_action_draw">Draw it</string>
+    <string name="create_idea_action_write">Write down your idea</string>
+    <string name="edit_icon_description">Edit Icon</string>
+    <string name="create_idea_action_record_video">Maybe record a video?</string>
+    <string name="play_icon_description">Play Icon</string>
+    <string name="create_idea_action_record_audio">Speak about it</string>
+    <string name="create_idea_action_take_picture">Take a picture</string>
+    <string name="create_idea_title">Create Ideas!</string>
+    <string name="create_idea_record_audio_announcement">We will try to infer your ideas as you speak!</string>
+    <string name="audio_switch_icon_description">Audio Handle Icon</string>
+    <string name="create_idea_return_button_text">Back</string>
 </resources>

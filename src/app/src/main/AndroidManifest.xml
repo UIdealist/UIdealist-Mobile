@@ -2,8 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- In order for our app to access the Internet, we need to define this permission. -->
+    <!-- Internet access permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Audio recording permissions -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <application
         android:usesCleartextTraffic="true"
@@ -40,6 +45,12 @@
 
         <activity
             android:name=".ui.activities.MainMenuActivity"
+            android:exported="true"
+            >
+        </activity>
+
+        <activity
+            android:name=".ui.activities.CreateIdeaActivity"
             android:exported="true"
             >
         </activity>

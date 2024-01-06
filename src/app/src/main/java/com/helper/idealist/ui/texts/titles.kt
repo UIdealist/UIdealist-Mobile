@@ -15,8 +15,8 @@ import com.helper.idealist.ui.theme.CustomTheme
 fun Title(text : String) {
     Text(
         text = text,
+        style = CustomTheme.typography.h2,
         color = CustomTheme.colors.textColor1,
-        fontSize = 60.sp
     )
 }
 
@@ -24,7 +24,7 @@ fun Title(text : String) {
 fun SubTitle(text : String){
     Text(
         text = text,
+        style = CustomTheme.typography.h3,
         color = CustomTheme.colors.textColor1,
-        fontSize = 30.sp
     )
 }

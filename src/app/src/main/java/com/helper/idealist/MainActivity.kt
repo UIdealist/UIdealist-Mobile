@@ -17,6 +17,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import com.helper.idealist.ui.activities.MainMenuActivity
 import com.helper.idealist.ui.activities.SignInActivity
@@ -33,9 +34,12 @@ class MainActivity : ThemedActivity(
 
     @Composable
     override fun content() {
+        val context = LocalContext.current
+
         Column(
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxSize(),
+            verticalArrangement = Arrangement.SpaceBetween
         ) {
             Column(
                 modifier = Modifier
@@ -115,12 +119,9 @@ class MainActivity : ThemedActivity(
                     .fillMaxWidth()
                     .background(CustomTheme.colors.primary2)
                     .padding(
-                        top = CustomTheme.spaces.extraLarge,
-                        bottom = CustomTheme.spaces.extraLarge
+                        top = CustomTheme.spaces.extraLarge
                     )
-                    .wrapContentHeight(
-                        align = Alignment.Bottom
-                    )
+                    .weight(1f, true)
                 ,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
@@ -128,9 +129,10 @@ class MainActivity : ThemedActivity(
                     MainButton(
                         text = stringResource(R.string.button_label_sign_up),
                         onClick = {
-                            startActivity(
+                            context.startActivity(
                                 Intent(
-                                    this@MainActivity, SignUpActivity::class.java
+                                    context,
+                                    SignUpActivity::class.java
                                 )
                             )
                         },
@@ -140,9 +142,10 @@ class MainActivity : ThemedActivity(
                     MainButton(
                         text = stringResource(R.string.button_label_sign_in),
                         onClick = {
-                            startActivity(
+                            context.startActivity(
                                 Intent(
-                                    this@MainActivity, SignInActivity::class.java
+                                    context,
+                                    SignInActivity::class.java
                                 )
                             )
                         },
@@ -154,9 +157,10 @@ class MainActivity : ThemedActivity(
                     MainButton(
                         text = stringResource(R.string.button_label_stay_anonymous),
                         onClick = {
-                            startActivity(
+                            context.startActivity(
                                 Intent(
-                                    this@MainActivity, MainMenuActivity::class.java
+                                    context,
+                                    MainMenuActivity::class.java
                                 )
                             )
                         },

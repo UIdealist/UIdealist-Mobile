@@ -1,6 +1,7 @@
 package com.helper.idealist.ui.buttons
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -18,8 +19,6 @@ import com.helper.idealist.ui.theme.CustomTheme
 enum class MainButtonType {
     Primary,
     Secondary,
-    Tertiary,
-    Quaternary,
 }
 
 @Composable
@@ -28,39 +27,49 @@ fun MainButton(
     onClick: () -> Unit,
     type : MainButtonType
 ){
+    val borderColor = when (type) {
+        MainButtonType.Primary -> CustomTheme.colors.primary1
+        MainButtonType.Secondary -> CustomTheme.colors.primary1
+    }
+    val backgroundColor = when (type) {
+        MainButtonType.Primary -> CustomTheme.colors.primary1
+        MainButtonType.Secondary -> CustomTheme.colors.primary2
+    }
+    val textColor = when (type) {
+        MainButtonType.Primary -> CustomTheme.colors.textColor2
+        MainButtonType.Secondary -> CustomTheme.colors.textColor1
+    }
+
     Button(
         onClick = onClick,
         modifier = Modifier
-            .padding(CustomTheme.spaces.large),
+            .padding(CustomTheme.spaces.large)
+            .border(
+                width = CustomTheme.spaces.small,
+                color = borderColor,
+                shape = CustomTheme.shapes.mainButtonShape
+            ),
         colors = ButtonDefaults.buttonColors(
-            containerColor = when (type) {
-                MainButtonType.Primary -> CustomTheme.colors.primary1
-                MainButtonType.Secondary -> CustomTheme.colors.primary2
-                MainButtonType.Tertiary -> CustomTheme.colors.primary3
-                MainButtonType.Quaternary -> CustomTheme.colors.primary4
-                else -> CustomTheme.colors.primary1
-            }
+            containerColor = backgroundColor,
         ),
         shape = CustomTheme.shapes.mainButtonShape
     ){
         Text(
             text = text,
-            color = Color.White,
-            fontSize = 4.em,
-            modifier = Modifier
-                .background(Color.Transparent)
+            style = CustomTheme.typography.body1,
+            color = textColor
         )
     }
 }
 
 @Preview
 @Composable
-fun MainButtonPreview() {
+internal fun MainButtonPreview() {
     CustomTheme {
         MainButton(
             text = "Button",
             onClick = {},
-            type = MainButtonType.Primary
+            type = MainButtonType.Secondary
         )
     }
 }

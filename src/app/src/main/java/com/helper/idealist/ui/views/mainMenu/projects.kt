@@ -1,4 +1,4 @@
-package com.helper.idealist.ui.views
+package com.helper.idealist.ui.views.mainMenu
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
